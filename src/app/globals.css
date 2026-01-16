@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="river-dawn"] {
+  --brand-forest: #1c8c8a; /* river teal */
+  --brand-leaf: #ffb341; /* saffron accent */
+  --brand-ocean: #0b0f14; /* deep midnight anchor */
+  --brand-ochre: #ffb341;
+  --brand-ivory: #f6f2ea; /* mist ivory */
+  --brand-cloud: #f6f2ea;
+  --brand-ink: #0b0f14;
+  --brand-slate: #9aa4ae; /* muted stone */
+  --surface: #ffffff;
+  --muted: #56616f;
+  --bg-aura-1: rgba(28, 140, 138, 0.12);
+  --bg-aura-2: rgba(255, 179, 65, 0.12);
+  --bg-gradient: linear-gradient(180deg, rgba(11, 15, 20, 0.03), rgba(11, 15, 20, 0.06));
+  --bg-base: var(--brand-cloud);
+}
+
+[data-theme="vayu-air"] {
+  --brand-forest: #3a8fb7;
+  --brand-leaf: #6ad0ff;
+  --brand-ocean: #0f2333;
+  --brand-ochre: #b7e4ff;
+  --brand-ivory: #eaf6ff;
+  --brand-cloud: #eaf6ff;
+  --brand-ink: #0f2333;
+  --brand-slate: #7ba3c0;
+  --surface: #f3faff;
+  --muted: #486277;
+  --bg-aura-1: rgba(106, 208, 255, 0.18);
+  --bg-aura-2: rgba(58, 143, 183, 0.12);
+  --bg-gradient: linear-gradient(180deg, rgba(15, 35, 51, 0.04), rgba(15, 35, 51, 0.1));
+  --bg-base: var(--brand-cloud);
+}
+
+[data-theme="jal-river"] {
+  --brand-forest: #1f8a9d;
+  --brand-leaf: #4ad6c2;
+  --brand-ocean: #0b223a;
+  --brand-ochre: #4ad6c2;
+  --brand-ivory: #e8f5ff;
+  --brand-cloud: #0b223a;
+  --brand-ink: #e8f5ff;
+  --brand-slate: #4d6c86;
+  --surface: #0f2c45;
+  --muted: #a6bfd8;
+  --bg-aura-1: rgba(31, 138, 157, 0.18);
+  --bg-aura-2: rgba(74, 214, 194, 0.12);
+  --bg-gradient: linear-gradient(180deg, rgba(11, 34, 58, 0.75), rgba(11, 34, 58, 0.9));
+  --bg-base: var(--brand-cloud);
+}
+
+[data-theme="bhoomi-earth"] {
+  --brand-forest: #6f8c4e;
+  --brand-leaf: #d6b27a;
+  --brand-ocean: #2b1b12;
+  --brand-ochre: #d6b27a;
+  --brand-ivory: #f3e6d5;
+  --brand-cloud: #f3e6d5;
+  --brand-ink: #2b1b12;
+  --brand-slate: #8b6a4a;
+  --surface: #f0e0ca;
+  --muted: #5a4433;
+  --bg-aura-1: rgba(163, 74, 44, 0.14);
+  --bg-aura-2: rgba(111, 140, 78, 0.14);
+  --bg-gradient: linear-gradient(180deg, rgba(43, 27, 18, 0.05), rgba(43, 27, 18, 0.1));
+  --bg-base: var(--brand-cloud);
+}
+
+[data-theme="night-river"] {
+  --brand-forest: #5fd3cf;
+  --brand-leaf: #ffd27a;
+  --brand-ocean: #050912;
+  --brand-ochre: #ffd27a;
+  --brand-ivory: #e8efff;
+  --brand-cloud: #050912;
+  --brand-ink: #e8efff;
+  --brand-slate: #4f5e79;
+  --surface: #0b1220;
+  --muted: #9fb5dd;
+  --bg-aura-1: rgba(123, 126, 255, 0.18);
+  --bg-aura-2: rgba(106, 242, 198, 0.12);
+  --bg-gradient: linear-gradient(180deg, rgba(5, 9, 18, 0.72), rgba(5, 9, 18, 0.9));
+  --bg-base: var(--brand-cloud);
+}
+
+[data-theme="field-notes"] {
+  --brand-forest: #6c8a6a;
+  --brand-leaf: #c4a27a;
+  --brand-ocean: #1f1b16;
+  --brand-ochre: #c4a27a;
+  --brand-ivory: #f7f1e3;
+  --brand-cloud: #f7f1e3;
+  --brand-ink: #1f1b16;
+  --brand-slate: #5a4c3c;
+  --surface: #f0e6d8;
+  --muted: #534536;
+  --bg-aura-1: rgba(108, 138, 106, 0.12);
+  --bg-aura-2: rgba(196, 162, 122, 0.12);
+  --bg-gradient: linear-gradient(180deg, rgba(31, 27, 22, 0.04), rgba(31, 27, 22, 0.08));
+  --bg-base: var(--brand-cloud);
+}
+
+@theme inline {
+  --color-background: var(--brand-cloud);
+  --color-foreground: var(--brand-ink);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-dm-serif);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 18%, var(--bg-aura-1), transparent 34%),
+    radial-gradient(circle at 78% 12%, var(--bg-aura-2), transparent 28%),
+    var(--bg-gradient),
+    var(--bg-base);
+  color: var(--brand-ink);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-dm-serif), "Times New Roman", serif;
+  letter-spacing: -0.01em;
+}
+
+.soft-card {
+  box-shadow: 0 20px 50px -30px rgba(11, 15, 20, 0.35);
+}
+
+.hero-gradient {
+  background: linear-gradient(120deg, var(--brand-ocean) 0%, var(--brand-forest) 60%, var(--brand-leaf) 100%);
+}
+
+.grid-overlay {
+  background-image: radial-gradient(circle, rgba(11, 15, 20, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--brand-slate) 18%, transparent);
+  background: color-mix(in srgb, var(--surface) 96%, rgba(255, 255, 255, 0.04));
+  padding: 12px 16px;
+  color: var(--brand-ink);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input:focus {
+  border-color: var(--brand-forest);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-forest) 24%, transparent);
+}
