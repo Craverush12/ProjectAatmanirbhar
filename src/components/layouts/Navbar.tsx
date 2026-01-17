@@ -33,7 +33,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--brand-slate)]/12 bg-[var(--surface)]/90 backdrop-blur shadow-[0_10px_30px_-24px_rgba(0,0,0,0.6)]">
+    <header className="sticky top-0 z-50 w-full overflow-x-clip border-b border-[var(--brand-slate)]/12 bg-[var(--surface)]/90 backdrop-blur shadow-[0_10px_30px_-24px_rgba(0,0,0,0.6)]">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
         <Link href="/" className="flex items-center gap-3">
           <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[var(--brand-forest)] to-[var(--brand-leaf)] text-white font-semibold">
@@ -66,7 +66,7 @@ export default function Navbar() {
           <button
             aria-label="Cycle color aesthetic"
             onClick={handleCyclePalette}
-            className="rounded-full border border-[var(--brand-slate)]/25 bg-[var(--surface)]/80 px-3 py-2 text-left shadow-[0_10px_30px_-20px_rgba(0,0,0,0.4)] backdrop-blur transition hover:border-[var(--brand-forest)]"
+            className="hidden rounded-full border border-[var(--brand-slate)]/25 bg-[var(--surface)]/80 px-3 py-2 text-left shadow-[0_10px_30px_-20px_rgba(0,0,0,0.4)] backdrop-blur transition hover:border-[var(--brand-forest)] md:inline-block"
           >
             <span className="block text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--brand-slate)]">
               Palette
@@ -96,20 +96,38 @@ export default function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden"
           >
-            <div className="space-y-2 border-t border-[var(--brand-slate)]/10 bg-[var(--surface)] px-4 py-4">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "block rounded-xl px-3 py-2 text-sm font-semibold text-[var(--brand-ink)] hover:bg-[var(--brand-forest)]/10",
-                    pathname === link.href && "bg-[var(--brand-forest)]/10 text-[var(--brand-forest)]"
-                  )}
-                  onClick={() => setOpen(false)}
+            <div className="mx-auto max-w-6xl space-y-3 border-t border-[var(--brand-slate)]/10 bg-[var(--surface)] px-4 py-4">
+              <div className="flex flex-wrap gap-2">
+                <button
+                  aria-label="Cycle color aesthetic"
+                  onClick={() => {
+                    handleCyclePalette();
+                  }}
+                  className="rounded-full border border-[var(--brand-slate)]/30 bg-[var(--surface)] px-3 py-2 text-left text-xs font-semibold text-[var(--brand-ink)] shadow-sm"
                 >
-                  {link.label}
-                </Link>
-              ))}
+                  Palette: {currentPalette.name}
+                </button>
+                <Button size="sm" variant="primary" href="/donate" className="flex-1 min-w-[120px] text-center">
+                  Donate
+                </Button>
+              </div>
+              <div className="grid gap-2">
+                {links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "block rounded-2xl px-4 py-3 text-sm font-semibold text-[var(--brand-ink)] shadow-[0_10px_30px_-24px_rgba(0,0,0,0.4)]",
+                      pathname === link.href
+                        ? "bg-[var(--brand-forest)]/10 text-[var(--brand-forest)] border border-[var(--brand-forest)]/20"
+                        : "border border-[var(--brand-slate)]/12 bg-[var(--surface)] hover:border-[var(--brand-forest)]/30"
+                    )}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
