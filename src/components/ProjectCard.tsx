@@ -17,7 +17,6 @@ const ProjectCard = ({ project, compact = false }: Props) => {
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 33vw"
-          priority
         />
         <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-emerald-700">
           {project.category}
@@ -30,7 +29,7 @@ const ProjectCard = ({ project, compact = false }: Props) => {
           <span>{project.impact}</span>
           {!compact && (
             <Link href="/projects" className="text-emerald-700 hover:text-emerald-900">
-              Learn more →
+              Learn more &rarr;
             </Link>
           )}
         </div>

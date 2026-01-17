@@ -36,7 +36,7 @@ export function FieldStories({ stories }: Props) {
             )}
             <div className="space-y-2 p-4">
               <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--brand-forest)]">
-                {story.frontmatter.tags?.join(" · ")}
+                {story.frontmatter.tags?.join(" / ")}
               </p>
               <h3 className="text-lg font-semibold text-[var(--brand-ink)]">{story.frontmatter.title}</h3>
               <p className="text-sm text-[var(--muted)]">{story.frontmatter.excerpt || story.content.slice(0, 120)}</p>

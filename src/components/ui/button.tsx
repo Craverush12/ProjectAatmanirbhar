@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
@@ -36,13 +37,26 @@ export function Button({
   type = "button",
   href,
 }: ButtonProps) {
+  const classes = cn(styles.base, styles[variant], styles[size], className);
+
   if (href) {
+    const isInternal = href.startsWith("/");
+    if (isInternal) {
+      return (
+        <Link href={href} className={classes} onClick={onClick}>
+          <motion.span whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            {children}
+          </motion.span>
+        </Link>
+      );
+    }
+
     return (
       <motion.a
         href={href}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className={cn(styles.base, styles[variant], styles[size], className)}
+        className={classes}
       >
         {children}
       </motion.a>
@@ -55,7 +69,7 @@ export function Button({
       whileTap={{ scale: 0.98 }}
       type={type}
       onClick={onClick}
-      className={cn(styles.base, styles[variant], styles[size], className)}
+      className={classes}
     >
       {children}
     </motion.button>

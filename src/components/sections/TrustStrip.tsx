@@ -2,10 +2,15 @@ import Link from "next/link";
 import { Badge } from "../ui/badge";
 
 export function TrustStrip() {
-  const partners = ["[partner placeholder]", "[partner placeholder]", "[partner placeholder]"];
+  const partners = [
+    { name: "Community river stewards", note: "Local collectives" },
+    { name: "Women climate fellows", note: "Field leadership" },
+    { name: "School eco-clubs", note: "Citizen science" },
+  ];
   const reports = [
-    { label: "Impact report [placeholder year]", href: "#" },
-    { label: "Financials [placeholder year]", href: "#" },
+    { label: "Impact ledger (Q4 preview)", href: "/contact?ref=impact-ledger", helper: "Request PDF" },
+    { label: "Financials (CSR pack)", href: "mailto:hello@projectaatmanirbhar.org?subject=CSR%20financials", helper: "Email team" },
+    { label: "Methodology + SOPs", href: "/blog", helper: "See field diaries" },
   ];
 
   return (
@@ -18,9 +23,10 @@ export function TrustStrip() {
             Open updates, reports, and partners who walk with us. Methodology is shared and community-owned.
           </p>
           <div className="flex flex-wrap gap-2">
-            {partners.map((p) => (
-              <Badge key={p} className="bg-white/10 text-[var(--brand-ivory)] backdrop-blur">
-                {p}
+            {partners.map((partner) => (
+              <Badge key={partner.name} className="bg-white/10 text-[var(--brand-ivory)] backdrop-blur">
+                <span className="font-semibold">{partner.name}</span>
+                <span className="ml-2 text-[10px] uppercase tracking-[0.22em] text-white/70">{partner.note}</span>
               </Badge>
             ))}
           </div>
@@ -34,7 +40,8 @@ export function TrustStrip() {
                 href={report.href}
                 className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-[var(--brand-ivory)] hover:border-[var(--brand-leaf)]"
               >
-                {report.label}
+                <span>{report.label}</span>
+                {report.helper && <p className="text-[11px] font-normal text-[var(--brand-ivory)]/70">{report.helper}</p>}
               </Link>
             ))}
           </div>

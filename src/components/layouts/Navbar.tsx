@@ -33,10 +33,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--brand-slate)]/10 bg-white/80 backdrop-blur dark:bg-[var(--surface)]/90">
+    <header className="sticky top-0 z-50 border-b border-[var(--brand-slate)]/12 bg-[var(--surface)]/90 backdrop-blur shadow-[0_10px_30px_-24px_rgba(0,0,0,0.6)]">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--brand-forest)] to-[var(--brand-leaf)] grid place-items-center text-white font-semibold">
+          <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[var(--brand-forest)] to-[var(--brand-leaf)] text-white font-semibold">
             PA
           </div>
           <div>
@@ -66,7 +66,7 @@ export default function Navbar() {
           <button
             aria-label="Cycle color aesthetic"
             onClick={handleCyclePalette}
-            className="rounded-full border border-[var(--brand-slate)]/25 bg-[var(--surface)]/60 px-3 py-2 text-left shadow-[0_10px_30px_-20px_rgba(0,0,0,0.4)] backdrop-blur transition hover:border-[var(--brand-forest)]"
+            className="rounded-full border border-[var(--brand-slate)]/25 bg-[var(--surface)]/80 px-3 py-2 text-left shadow-[0_10px_30px_-20px_rgba(0,0,0,0.4)] backdrop-blur transition hover:border-[var(--brand-forest)]"
           >
             <span className="block text-[10px] font-semibold uppercase tracking-[0.32em] text-[var(--brand-slate)]">
               Palette
@@ -81,7 +81,9 @@ export default function Navbar() {
             onClick={() => setOpen((p) => !p)}
             aria-label="Toggle navigation"
           >
-            ☰
+            <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true">
+              <path d="M1 1h18M1 7h18M1 13h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
       </div>
@@ -94,7 +96,7 @@ export default function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden"
           >
-            <div className="space-y-2 border-t border-[var(--brand-slate)]/10 bg-white px-4 py-4">
+            <div className="space-y-2 border-t border-[var(--brand-slate)]/10 bg-[var(--surface)] px-4 py-4">
               {links.map((link) => (
                 <Link
                   key={link.href}
